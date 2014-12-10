@@ -3,7 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $("#submit").click ->
+  $("#submit").click (e)->
+    e.preventDefault()
     # hide the results at first
     $("p.results").hide().empty()
 
