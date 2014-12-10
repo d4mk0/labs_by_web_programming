@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :filiks
+
   resources :words do
     get 'get_list', on: :collection
   end

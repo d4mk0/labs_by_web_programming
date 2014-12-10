@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @filik.name %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @filik.size %>
+</p>
+
+<%= link_to 'Edit', edit_filik_path(@filik) %> |
+<%= link_to 'Back', filiks_path %>

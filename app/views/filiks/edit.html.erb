@@ -1,0 +1,17 @@
+<h1>Editing filik</h1>
+
+<%= form_for :filik, url: filiks_path do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, value: params[:filename] %>
+  </div>
+  <%= f.hidden_field :old_name, value: params[:filename] %>
+  <%= f.hidden_field :_method, value: :patch %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Show', @filik %> |
+<%= link_to 'Back', filiks_path %>

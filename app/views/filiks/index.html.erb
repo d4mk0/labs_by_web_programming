@@ -1,0 +1,36 @@
+<h1>Listing filiks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Created at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @filiks.each do |filik| %>
+      <tr>
+        <% file = "#{Rails.root}/public/filiks/#{filik}" %>
+        <td>
+          <% if ['.png', '.jpg'].include? File.extname(file) %>
+            <img src="filiks/<%= filik %>" style="max-width: 400px">
+          <% else %>
+            <%= filik %>
+          <% end %>
+        </td>
+        <td><%= "#{File.size file} b" %></td>
+        <td><%= File.ctime file %></td>
+        <td><%= link_to 'Download', "filiks/#{filik}" %></td>
+        <td><%= link_to 'Edit', edit_filik_path(filik.delete('.'), filename: filik) %></td>
+        <td><%= link_to 'Destroy', filik_path(filik, filename: filik), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Filik', new_filik_path %>

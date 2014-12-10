@@ -1,0 +1,9 @@
+<%= form_for :filik, url: filiks_path, multipart: true do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.file_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
